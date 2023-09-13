@@ -11,6 +11,7 @@
 		ED8F7C072AAF5EEF006B8B8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8F7C062AAF5EEF006B8B8A /* ContentView.swift */; };
 		ED8F7C092AAF5EF1006B8B8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8F7C082AAF5EF1006B8B8A /* Assets.xcassets */; };
 		ED8F7C0C2AAF5EF1006B8B8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8F7C0B2AAF5EF1006B8B8A /* Preview Assets.xcassets */; };
+		ED8F7C132AAF5F15006B8B8A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8F7C122AAF5F15006B8B8A /* CircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		ED8F7C062AAF5EEF006B8B8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ED8F7C082AAF5EF1006B8B8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED8F7C0B2AAF5EF1006B8B8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ED8F7C122AAF5F15006B8B8A /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				ED8F7C042AAF5EEF006B8B8A /* TrafficLightSUIApp.swift */,
 				ED8F7C062AAF5EEF006B8B8A /* ContentView.swift */,
+				ED8F7C122AAF5F15006B8B8A /* CircleView.swift */,
 				ED8F7C082AAF5EF1006B8B8A /* Assets.xcassets */,
 				ED8F7C0A2AAF5EF1006B8B8A /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8F7C132AAF5F15006B8B8A /* CircleView.swift in Sources */,
 				ED8F7C072AAF5EEF006B8B8A /* ContentView.swift in Sources */,
 				ED8F7C052AAF5EEF006B8B8A /* TrafficLightSUIApp.swift in Sources */,
 			);
