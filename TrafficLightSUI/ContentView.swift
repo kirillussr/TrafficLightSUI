@@ -15,14 +15,11 @@ struct ContentView: View {
     
     @State private var buttonTitle = "START"
     
-    @State private var redLight = CircleView(color: .red)
-    @State private var yellowLight = CircleView(color: .yellow)
-    @State private var greenLight = CircleView(color: .green)
+    @State private var redLight = 0.2
+    @State private var yellowLight = 0.2
+    @State private var greenLight = 0.2
     
     @State private var currentLight = CurrentLight.red
-    
-    private let lightIsOn = 1.0
-    private let lightIsOff = 0.2
     
     var body: some View {
         ZStack {
@@ -30,44 +27,41 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack {
                 
-                redLight
-                yellowLight
+                CircleView(color: .red, opacity: redLight)
+                CircleView(color: .yellow, opacity: yellowLight)
                     .padding(20)
-                greenLight
+                CircleView(color: .green, opacity: greenLight)
+                
                 Spacer()
-                                
-                Button(action: {
-                    buttonTitle = "NEXT"
+                
+                ButtonView(title: buttonTitle) {
+                    if buttonTitle == "START" {
+                        buttonTitle = "NEXT"
+                    }
                     changeLightColor()
-                }) {
-                    Text("\(buttonTitle)")
-                        .foregroundColor(.white)
-                        .font(.largeTitle)
-                        .padding()
                 }
-                .frame(width: 250)
-                .background(Color.blue)
-                .cornerRadius(15)
-                .overlay(RoundedRectangle(cornerRadius: 15)
-                    .stroke(Color.white,lineWidth: 5))
             }
             .padding()
         }
     }
     
     private func changeLightColor() {
+        
+        let lightIsOn = 1.0
+        let lightIsOff = 0.2
+        
         switch currentLight {
         case .red:
-            redLight.backlighting = lightIsOn
-            greenLight.backlighting = lightIsOff
+            redLight = lightIsOn
+            greenLight = lightIsOff
             currentLight = .yellow
         case .yellow:
-            yellowLight.backlighting = lightIsOn
-            redLight.backlighting = lightIsOff
+            yellowLight = lightIsOn
+            redLight = lightIsOff
             currentLight = .green
         case .green:
-            greenLight.backlighting = lightIsOn
-            yellowLight.backlighting = lightIsOff
+            greenLight = lightIsOn
+            yellowLight = lightIsOff
             currentLight = .red
         }
     }
