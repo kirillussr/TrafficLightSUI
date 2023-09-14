@@ -8,18 +8,13 @@
 import SwiftUI
 
 private enum CurrentLight {
-    case red, yellow, green
+    case off, red, yellow, green
 }
 
 struct ContentView: View {
     
     @State private var buttonTitle = "START"
-    
-    @State private var redLight = 0.2
-    @State private var yellowLight = 0.2
-    @State private var greenLight = 0.2
-    
-    @State private var currentLight = CurrentLight.red
+    @State private var currentLight: CurrentLight = .off
     
     var body: some View {
         ZStack {
@@ -27,10 +22,19 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack {
                 
-                CircleView(color: .red, opacity: redLight)
-                CircleView(color: .yellow, opacity: yellowLight)
+                CircleView(
+                    color: .red,
+                    opacity: currentLight == .red ? 1 : 0.2
+                )
+                CircleView(
+                    color: .yellow,
+                    opacity: currentLight == .yellow ? 1 : 0.2
+                )
                     .padding(20)
-                CircleView(color: .green, opacity: greenLight)
+                CircleView(
+                    color: .green,
+                    opacity: currentLight == .green ? 1 : 0.2
+                )
                 
                 Spacer()
                 
@@ -46,23 +50,11 @@ struct ContentView: View {
     }
     
     private func changeLightColor() {
-        
-        let lightIsOn = 1.0
-        let lightIsOff = 0.2
-        
         switch currentLight {
-        case .red:
-            redLight = lightIsOn
-            greenLight = lightIsOff
-            currentLight = .yellow
-        case .yellow:
-            yellowLight = lightIsOn
-            redLight = lightIsOff
-            currentLight = .green
-        case .green:
-            greenLight = lightIsOn
-            yellowLight = lightIsOff
-            currentLight = .red
+        case .off: currentLight = .red
+        case .red: currentLight = .yellow
+        case .yellow: currentLight = .green
+        case .green: currentLight = .red
         }
     }
 }
